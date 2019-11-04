@@ -1,0 +1,79 @@
+#game{
+    display: block;
+    width: 375px;
+    height: 467px;
+    background: grey;
+    border: 1px solid black;
+    margin: 0;
+    padding: 0;
+}
+#controls {
+    background-color: black;
+    border: 1px solid black;
+    width: 375px;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+    }
+
+.hitbox{
+    width: 40px;
+    height: 40px;
+    background-color:darkblue;
+    border: 0px;
+}
+#north{
+    position: relative;
+    top: 10px ;
+    left: 168px;
+}
+#south{
+    position: relative;
+    top: 110px;
+    left: 123px;
+}
+#west{
+    position: relative;
+    top: 60px;
+    left: 30px;
+}
+#east{
+position: relative;
+top: 60px;
+left: 80px;
+}
+i {
+    border: solid white;
+    border-width: 0 6px 6px 0;
+    display: inline-block;
+    padding: 6px;
+  }
+  
+  .right {
+    position: relative;
+    left: -5px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  
+  .left {
+    position: relative;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  
+  .up {
+    position: relative;
+    top: 2px;
+    left: -1px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  
+  .down {
+    position: relative;
+    left: 0px;
+    top: -2px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
