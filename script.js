@@ -7,8 +7,8 @@
 // declaration of var's (global)
 // map
 
-var arrayColumns = 8;
-var arrayRows = 8;
+var arrayColumns = 7;
+var arrayRows = 7;
 var map = mapArray(arrayRows, arrayColumns);
 
 
@@ -38,105 +38,114 @@ var player = {
 var positionY = player.y;
 var positionX = player.x;
 
-// zombie position
+// zombieA position
 
-var zombieY = (arrayColumns = 7);
-var zombieX = (arrayRows = 7);
-var zombie = {
-    y: zombieX,
-    x: zombieX,
-}
+var zombieY = Math.floor(Math.random() * map.length)
+var zombieX =  Math.floor(Math.random() * map.length)
+
+var zombieA = [];
+var numZombies = 2;
+
+for(i = 0; i < numZombies; i++){
+    zombieA[i] = {y:Math.floor(Math.random()*7 ),x:Math.floor(Math.random() * 7)};
+  }
+  
 
 //test in console
 console.log("y: " + player.y + ", " + "x: " + player.x);
-console.log("y: " + zombie.y + ", " + "x: " + zombie.x);
+
 
 
 
 function move(direction){
     if (direction === 'north'){
         if (player.y < 1) {
-            console.log("northern wall"); 
+            console.log("you have reached the northern wall"); 
         } else {
         positionY--;
         player.y = positionY;
         console.log('y: ' + player.y + ', x: ' + player.x);
-        
+        moveZombie();
     }
     }
     else if (direction === 'south') {
         if (player.y > map[player.y].length -2){
-            console.log("southern wall");
+            console.log("you have reached the southern wall");
         } else {
         positionY++;
         player.y = positionY;
         console.log('y: ' + player.y + ', x: ' + player.x);
-        
+        moveZombie();
     }
 }
     else if (direction === 'west'){
         if (player.x < 1){
-            console.log("western wall");
+            console.log("you have reached the western wall");
         } else {
         positionX--;
         player.x = positionX;
         console.log('y: ' + player.y + ', x: ' + player.x);
-       
+        moveZombie();
     }
 }
     else {
         if (player.x > map[player.x].length -2){
-            console.log("eastern wall");
+            console.log("you have reached the eastern wall");
         } else {
         positionX++;
         player.x = positionX;
         console.log('y: ' + player.y + ', x: ' + player.x);
-        
+        moveZombie();
         
     }
 }
 }
+
+
 function moveZombie(){
-    for (i = 0; i < zombie.length; i++){
-        //only move 70% of the time
-        if (Math.floor(Math.random()*10 +1) <= 7){
-           //50% of the time move Y axis else X axis if on same axis as player
-            if (Math.floor(Math.random() * 10 + 1) >= 5 ){
-                //Förflyttar spelaren på Y axel förutom om spelaren är på samma axel isf X axel
-                if (zombie[i].y === player.y){
-                    if (zombie[i].x > player.x){
-                        zombie[i].x--;
-                        }
-                        else {
-                       zombie[i].x++
-                        }
-                } else if (zombie[i].y > player.y){
-                        zombie[i].y--;
-                }
-            else {
-            zombie[i].y++
+
+    
+    for (i = 0; i < zombieA.length; i++){
+        
+        if (Math.random() < 0.5){
+            return Math.random();
+            if (zombieA[i].y === player.y){
+                if (zombieA[i].x > player.x){
+                    zombieA[i].x--;
+                    console.log("zombieA y: " + zombieA[i].y + ", " + "x: " + zombieA[i].x);
+                    }
+                    else {
+                   zombieA[i].x++
+                   console.log("zombieA y: " + zombieA[i].y + ", " + "x: " + zombieA[i].x);
+                    }
+            } else if (zombieA[i].y > player.y){
+                    zombieA[i].y--;
+                    console.log("zombieA y: " + zombieA[i].y + ", " + "x: " + zombieA[i].x);
             }
-        } else {
-            //Förflyttar zombie på X axeln förutom om spelaren är på samma axel isf Y axel
-            if (zombie[i].x === player.x){
-                if (zombie[i].y > player.y){
-                    zombie[i].y--;
-                } else {
-                    zombie[i].y++;
-                }
-            } else if (zombie[i].x > player.x){
-            zombie[i].x--;
+        else {
+        zombieA[i].y++
+        console.log("zombieA y: " + zombieA[i].y + ", " + "x: " + zombieA[i].x);
+        }
+    } else {
+       
+        if (zombieA[i].x === player.x){
+            if (zombieA[i].y > player.y){
+                zombieA[i].y--;
+                console.log("zombieA y: " + zombieA[i].y + ", " + "x: " + zombieA[i].x);
             } else {
-           zombie[i].x++
-           
-       }
-    } 
+                zombieA[i].y++;
+                console.log("zombieA y: " + zombieA[i].y + ", " + "x: " + zombieA[i].x);
+            }
+        } else if (zombieA[i].x > player.x){
+        zombieA[i].x--;
+        console.log("zombieA y: " + zombieA[i].y + ", " + "x: " + zombieA[i].x);
+        } else {
+       zombieA[i].x++
+       console.log("zombieA y: " + zombieA[i].y + ", " + "x: " + zombieA[i].x);
+   }
 } 
-}
+                
+        }
 }
 
-// function for zombie to move when player moves
-
-function zombie(){
-    moveZombie();
-}
+// function for zombieA to move when player moves
