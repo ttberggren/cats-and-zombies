@@ -22,10 +22,6 @@ function mapArray(cols, rows){
     }
         return newArray;
     }
-
-
-    
-    
     
     var playerY = (arrayColumns = 1);       //player position
 var playerX = (arrayRows = 1);  
@@ -44,24 +40,21 @@ console.log("y: " + player.y + ", " + "x: " + player.x);
 var cats =  [];     
 var numCats = 2;
 
-
-
-function spawnCats(){
+//function spawnCats(){
 // cats spawn
 
 for(i = 0; i < numCats; i++){
-    cats[i] = {y:Math.floor(Math.random()*7 ),x:Math.floor(Math.random() * 7)};
-     console.log("y: " + cats.y + ", " + cats.x);
-}
+    cats[i] = {y:Math.floor(Math.random()* map.length ),x:Math.floor(Math.random() * map.length)};
+     console.log("cats y: " + cats[i].y + ", cats x: " + cats[i].x);
 }
 
-spawnCats();
+//spawnCats();
 
 
 function findCats(){
-    if (cats[i].x === player.x){
-        if(cats[i].y === player.y){
-            console.log("y: " + cats.y + ", " + cats.x);
+    if (cats[i].x == player.x){
+        if(cats[i].y == player.y){
+            console.log("cat found!");
 
         }
     }
@@ -78,12 +71,6 @@ zombieA[i] = {y:Math.floor(Math.random()*7 ),x:Math.floor(Math.random() * 7)};
   
 // init();
 
-
-
-
-
-
-
 function move(direction){
     if (direction === 'north'){
         if (player.y < 1) {
@@ -93,6 +80,7 @@ function move(direction){
         player.y = positionY;
         console.log('y: ' + player.y + ', x: ' + player.x);
         moveZombie();
+        findCats();
     }
     }
     else if (direction === 'south') {
@@ -103,6 +91,7 @@ function move(direction){
         player.y = positionY;
         console.log('y: ' + player.y + ', x: ' + player.x);
         moveZombie();
+        findCats();
     }
 }
     else if (direction === 'west'){
@@ -113,6 +102,7 @@ function move(direction){
         player.x = positionX;
         console.log('y: ' + player.y + ', x: ' + player.x);
         moveZombie();
+        findCats();
     }
 }
     else {
@@ -123,6 +113,7 @@ function move(direction){
         player.x = positionX;
         console.log('y: ' + player.y + ', x: ' + player.x);
         moveZombie();
+        findCats();
         
     }
 }
