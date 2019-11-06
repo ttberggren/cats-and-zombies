@@ -10,27 +10,25 @@
 var arrayColumns = 7;
 var arrayRows = 7;
 var map = mapArray(arrayRows, arrayColumns);
+var gamePlaying;
 
 
 function mapArray(cols, rows){
-var newArray = new Array(cols);
-
-for(var i = 0; i < newArray.length; i++){
-    newArray[i] = new Array(rows);
-
-    for (var j = 0; j < newArray.length; j++){
-        newArray[i][j] = j; 
+    var newArray = new Array(cols);
+    
+    for(var i = 0; i < newArray.length; i++){
+        newArray[i] = new Array(rows);
+    
     }
-}
-    return newArray;
-}
+        return newArray;
+    }
 
 
-
-// player position
-
-var playerY = (arrayColumns = 1);
-var playerX = (arrayRows = 1);
+    
+    
+    
+    var playerY = (arrayColumns = 1);       //player position
+var playerX = (arrayRows = 1);  
 var player = {
     y: playerY,
     x: playerX
@@ -38,21 +36,50 @@ var player = {
 var positionY = player.y;
 var positionX = player.x;
 
-// zombieA position
-
-var zombieY = Math.floor(Math.random() * map.length)
-var zombieX =  Math.floor(Math.random() * map.length)
-
-var zombieA = [];
-var numZombies = 2;
-
-for(i = 0; i < numZombies; i++){
-    zombieA[i] = {y:Math.floor(Math.random()*7 ),x:Math.floor(Math.random() * 7)};
-  }
-  
-
 //test in console
 console.log("y: " + player.y + ", " + "x: " + player.x);
+
+//////////////////////
+
+var cats =  [];     
+var numCats = 2;
+
+
+
+function spawnCats(){
+// cats spawn
+
+for(i = 0; i < numCats; i++){
+    cats[i] = {y:Math.floor(Math.random()*7 ),x:Math.floor(Math.random() * 7)};
+     console.log("y: " + cats.y + ", " + cats.x);
+}
+}
+
+spawnCats();
+
+
+function findCats(){
+    if (cats[i].x === player.x){
+        if(cats[i].y === player.y){
+            console.log("y: " + cats.y + ", " + cats.x);
+
+        }
+    }
+}
+
+
+var zombieA = [];   //zombie spawn 
+var numZombies = 2;
+for(i = 0; i < numZombies; i++){
+zombieA[i] = {y:Math.floor(Math.random()*7 ),x:Math.floor(Math.random() * 7)};
+
+
+}
+  
+// init();
+
+
+
 
 
 
@@ -102,32 +129,20 @@ function move(direction){
 }
 
 
+
+
+/*
+console.log("y: " + cats[i].y + ", " + "x: " + cats[i].x);
+*/
+
+
+  
+
 function moveZombie(){
 
-    
+   
     for (i = 0; i < zombieA.length; i++){
-        
-        if (Math.random() < 0.5){
-            return Math.random();
-            if (zombieA[i].y === player.y){
-                if (zombieA[i].x > player.x){
-                    zombieA[i].x--;
-                    console.log("zombieA y: " + zombieA[i].y + ", " + "x: " + zombieA[i].x);
-                    }
-                    else {
-                   zombieA[i].x++
-                   console.log("zombieA y: " + zombieA[i].y + ", " + "x: " + zombieA[i].x);
-                    }
-            } else if (zombieA[i].y > player.y){
-                    zombieA[i].y--;
-                    console.log("zombieA y: " + zombieA[i].y + ", " + "x: " + zombieA[i].x);
-            }
-        else {
-        zombieA[i].y++
-        console.log("zombieA y: " + zombieA[i].y + ", " + "x: " + zombieA[i].x);
-        }
-    } else {
-       
+        if (Math.random() < 0.4){
         if (zombieA[i].x === player.x){
             if (zombieA[i].y > player.y){
                 zombieA[i].y--;
@@ -146,6 +161,28 @@ function moveZombie(){
 } 
                 
         }
+    }
+
+// document.querySelector(".btn-new").addEventListener("click", init)
+
+
+function init(){
+    // starts a new game
+        catSpawn();
+        playerSpawn();
+        zombieSpawn();
+        score = 0;  // score
+        gamePlaying = true;
 }
 
-// function for zombieA to move when player moves
+
+function winning(){
+    if(catsFound === 2){
+        
+    }
+
+}
+
+function losing(){
+
+}

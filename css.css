@@ -1,3 +1,30 @@
+
+
+.btn-new{
+  position: absolute;
+    width: 200px;
+    left: 20%;
+    display: block;
+    transform: translateX(-50%);
+    color: #555;
+    background: none;
+    border: none;
+    font-family: Lato;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.gameScore{
+  font-size: 80px;
+  font-weight: 100;
+  color: #EB4D4D;
+  margin-bottom: 130px;
+}
+
+
 #game{
     display: block;
     width: 375px;
@@ -24,23 +51,23 @@
 }
 #north{
     position: relative;
-    top: 10px ;
+    top: 50px ;
     left: 168px;
 }
 #south{
     position: relative;
-    top: 110px;
+    top: 150px;
     left: 123px;
 }
 #west{
     position: relative;
-    top: 60px;
+    top: 100px;
     left: 30px;
 }
 #east{
 position: relative;
-top: 60px;
-left: 80px;
+top: 100px;
+left: 85px;
 }
 i {
     border: solid white;
