@@ -7,10 +7,10 @@
     </head>
   
 <body>
+        <div id="first"></div>
+        <div id="game"></div>
 
-        <div id="game">
-            </div>
-            <div class="gameScore" id=catScore></div>
+            <div id="gameScore">0</div>
 
             
             <div id=controls>
@@ -21,7 +21,7 @@
                     <button class="hitbox" id="east" onclick="move('east')"><i class="right"></i></button>
             </div>
 
-                <button class="btn-new"></i>New game</button>
+                <button class="btn-new" id="newGame" onclick=init()></i>New game</button>
 
 
             <script src="script.js"></script>
