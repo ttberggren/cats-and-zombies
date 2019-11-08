@@ -31,6 +31,22 @@
     
 }
 
+.restartGame{
+  position: relative;
+  top: -240px;
+    width: 140px;
+    left: 60%;
+    display: none;
+   color: #EB4D4D;
+    background: none;
+    border: solid;
+    font-size: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    
+}
+
 #gameScore{
   display: none;
   left: 10px;
