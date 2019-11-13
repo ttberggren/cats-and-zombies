@@ -4,7 +4,7 @@
   height: 667px;
  }
 #first{
-  background-image: url(images/zombiestart.png);
+  background-image: url(images/zombies/zombiestart.png);
   background-size: cover;
   display: block;
   width: 375px;
@@ -12,22 +12,23 @@
   border: 1px solid black;
   margin: 0;
   padding: 0;
+  z-index: 1;
 }
 
 .btn-new{
   position: relative;
-  top: -100px;
-    width: 100px;
+  top: -80px;
+    width: 200px;
     left: 50%;
     display: block;
     transform: translateX(-50%);
     color: black;
-    background: none;
+    background: teal;
     border: solid;
     font-size: 30px;
     text-transform: uppercase;
     cursor: pointer;
-    font-weight: 300;
+    font-family: 'Source Sans Pro', sans-serif;
     
 }
 
@@ -43,13 +44,14 @@
     font-size: 30px;
     text-transform: uppercase;
     cursor: pointer;
-    font-weight: 300;
+    font-family: 'Source Sans Pro', sans-serif;
+    z-index: 0;
     
 }
 
 #gameScore{
   display: none;
-  left: 10px;
+  left: 40px;
   top: 0px;
   position: relative;
   font-size: 40px;
@@ -58,9 +60,19 @@
   
 }
 
+#location{
+  display: none;
+  left: 5px;
+  top: 600px;
+  position: relative;
+  font-size: 20px;
+  color: #EB4D4D;
+
+}
+
 
 #game{
-  background-image: url("images/layer1.png");
+
   position: absolute;
     width: 375px;
     height: 467px;
@@ -68,6 +80,40 @@
     border: 1px solid black;
     margin: 0;
     padding: 0;
+    z-index: -1;
+}
+
+
+
+#bg-images{
+  position: absolute;
+  width: 375px;
+  height: 467px;
+  z-index: 10;
+}
+#tree-images{
+  position: absolute;
+  top: 280px;
+  left: 150px;
+  z-index: 12;
+  width: 200px;
+  height: 200px;
+}
+#monsters-images{
+  position: absolute;
+  top:200px;
+  left:50px;
+  z-index: 10;
+  width: 100px;
+  height: 100px;
+}
+#object-images{
+  position: absolute;
+  top:310px;
+  left:50px;
+  z-index: 15;
+  width: 100px;
+  height: 100px;
 }
 #controls {
     background-color: black;
@@ -79,7 +125,110 @@
     padding: 0;
     display: none;
     position: relative;
+    z-index: 1;
+    
     }
+
+    #zombies{
+      position: absolute;
+      top:50px;
+      left:0px;
+      z-index: 100;
+        width: 340px;
+        height: 340px;
+      }
+
+      #dangerLeft{
+        position: absolute;
+        top:170px;
+        left:0;
+        z-index: 60;
+          width: 80px;
+          height: 80px;
+        }
+        #dangerRight{
+          position: absolute;
+          top:135px;
+          left:280px;
+          z-index: 60;
+            width: 80px;
+            height: 80px;
+          }
+          #dangerDown{
+            position: absolute;
+            top:375px;
+            left:150px;
+            z-index: 60;
+              width: 80px;
+              height: 80px;
+            }
+            #dangerUp{
+              position: absolute;
+              top:70px;
+              left:150px;
+              z-index: 70;
+                width: 80px;
+                height: 80px;
+              }
+              #catLeft{
+                position: absolute;
+                top:180px;
+                left:0;
+                z-index: 70;
+                  width: 80px;
+                  height: 80px;
+                }
+                #catRight{
+                  position: absolute;
+                  top:145px;
+                  left:280px;
+                  z-index: 70;
+                    width: 80px;
+                    height: 80px;
+                  }
+                  #catDown{
+                    position: absolute;
+                    top:365px;
+                    left:150px;
+                    z-index: 70;
+                      width: 80px;
+                      height: 80px;
+                    }
+                    #catUp{
+                      position: absolute;
+                      top:60px;
+                      left:150px;
+                      z-index: 70;
+                        width: 80px;
+                        height: 80px;
+                      }
+
+
+
+        #winning{
+          position: absolute;
+          top:40px;
+          left:20px;
+          z-index: 110;
+            width: 170x;
+            height: 170px;
+          }
+          #gameOver{
+            position: absolute;
+            top:70px;
+            left:-20px;
+            z-index: 120;
+              width: 400x;
+              height: 400px;
+            }
+      #cats{
+        position: absolute;
+        top:200px;
+        left:40px;
+        z-index: 40;
+        width: 250px;
+        height: 250px;
+      }
 
 .hitbox{
     width: 40px;
@@ -89,22 +238,22 @@
 }
 #north{
     position: relative;
-    top: 50px ;
+    top: 15px ;
     left: 168px;
 }
 #south{
     position: relative;
-    top: 150px;
+    top: 135px;
     left: 123px;
 }
 #west{
     position: relative;
-    top: 100px;
+    top: 75px;
     left: 30px;
 }
 #east{
 position: relative;
-top: 100px;
+top: 75px;
 left: 85px;
 }
 i {
