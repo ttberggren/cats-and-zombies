@@ -297,7 +297,7 @@
 
      function moveZombie(){
         for (i = 0; i < zombieA.length; i++){
-        if (Math.floor(Math.random() < 0.4)){
+        if (Math.floor(Math.random() < 0.2)){
         if (zombieA[i].x === player.x){
         if (zombieA[i].y > player.y){
             zombieA[i].y--;
@@ -440,7 +440,8 @@
 
         function losing(){
             for (i = 0; i < zombieA.length; i++){
-            if(zombieA[i].x == player.x && zombieA[i].y == player.y){   
+            if(zombieA[i].x == player.x && zombieA[i].y == player.y){ 
+                  
 
                 var topContainer = document.getElementById('game');
                 var zombies = document.createElement("img");
