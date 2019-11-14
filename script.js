@@ -33,25 +33,25 @@
  
      /*///////////////////////////////////////////////*/
 
-    // create the unique backgrounds by pushing images
+    // create the backgroundsarray in which the objects will be pushed into 
 
         function createBackground(){
                 var tempArray = [];
-    // push Backgrounds 
+    // push Backgrounds randomly
                 tempArray.push(numRandom(1,4));
-    // push trees 
+    // push trees randomly
             if (Math.floor(Math.random() * 7 + 1) < 4){
                 tempArray.push(numRandom(1,4));
     }       else {
                 tempArray.push(0);
     }
-    // push monsters
+    // push monsters randomly
             if(Math.floor(Math.random() * 7 + 1) < 4){
                 tempArray.push(numRandom(1,3));
     }       else {
                 tempArray.push(0);
     }   
-    // push objects
+    // push objects randomly 
             if(Math.floor(Math.random() * 7 + 1) < 4){
                 tempArray.push(numRandom(1,3));
     }       else {
@@ -60,7 +60,7 @@
     }
             return tempArray;
     }
-    //  function to load the backgrounds created by other functions
+    // function to load the backgrounds created by other functions
 
         function loadBackground(){
             for(y = 0; y < map.length; y++){
@@ -103,6 +103,7 @@
     }
          
     // function to place monsters
+
         function setMonstersimg(){
             if (map[player.y][player.x][2] == 1){
             createMonsters('monster1.png');
@@ -169,7 +170,7 @@
                 topwindow.innerHTML = "";
     }
 
-   //   randomfunction between two values
+   //   random function between two values
         function numRandom(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
     }
@@ -203,12 +204,13 @@
 
     /*///////////////////////////////////////////////*/
 
-    //  finding cats
+    //  finding cat(s) (and winning for now)
 
         function findCats(){
             for(i = 0; i < cats.length; i++){
         
             if (cats[i].x == player.x && cats[i].y == player.y){
+                    clearTop();
             
                 document.getElementById("gameScore").textContent = "1"; //adds 1 point to gameScore when first cat is found
                 var topContainer = document.getElementById('game');
@@ -216,6 +218,12 @@
                 cat.src = 'images/cats/cat'+numRandom(1,2)+'.png';
                 cat.id = "cats"
                 topContainer.appendChild(cat);
+
+                var topContainer = document.getElementById('game');
+                var winning = document.createElement("img");
+                winning.src = 'images/winning.png';
+                winning.id = "winning"
+                topContainer.appendChild(winning);
         
     }  
     }
@@ -317,10 +325,9 @@
 }
 }
 
-
     /*///////////////////////////////////////////////*/
 
-    //functions to see if zombie/cat is close
+    //functions to see if cat(s) is close
  
         function catClose(){
             for (i = 0 ; i < cats.length; i++){
@@ -357,6 +364,8 @@
     }
     }
 
+    //functions to see if zombies is close
+
         function zombieClose(){
             for (i = 0 ; i < zombieA.length; i++){
             if(player.x === zombieA[i].x +1 && player.y === zombieA[i].y){
@@ -391,7 +400,7 @@
     }
     }
     }
-    /*///////////////////////////////////////////////*/
+    
   
 
    
@@ -401,6 +410,7 @@
 
         function resetPlayer()
     {
+            
             clearTop();
             loadBackground();
                 playerX = Math.floor(arrayColumns / 2);
@@ -441,6 +451,7 @@
         function losing(){
             for (i = 0; i < zombieA.length; i++){
             if(zombieA[i].x == player.x && zombieA[i].y == player.y){ 
+                    clearTop();
                   
 
                 var topContainer = document.getElementById('game');
@@ -458,18 +469,3 @@
     }
     }
 
-    // what happens when you find the cat(s)
-
-        function winning(){
-            for(i = 0; i < cats.length; i++){
-    
-            if (cats[i].x == player.x && cats[i].y == player.y){
-   
-                var topContainer = document.getElementById('game');
-                var winning = document.createElement("img");
-                winning.src = 'images/winning.png';
-                winning.id = "winning"
-                topContainer.appendChild(winning);
-    }
-    }
-    }

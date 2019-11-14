@@ -2,7 +2,9 @@
  body {
   width: 375px;
   height: 667px;
+  
  }
+ /* design for the first sceren*/
 #first{
   background-image: url(images/zombies/zombiestart.png);
   background-size: cover;
@@ -14,7 +16,7 @@
   padding: 0;
   z-index: 1;
 }
-
+/* "New Game" button */
 .btn-new{
   position: relative;
   top: -80px;
@@ -31,7 +33,7 @@
     font-family: 'Source Sans Pro', sans-serif;
     
 }
-
+/* "Restart" button */
 .restartGame{
   position: relative;
   top: -240px;
@@ -48,7 +50,7 @@
     z-index: 0;
     
 }
-
+/* Game score */ 
 #gameScore{
   display: none;
   left: 40px;
@@ -69,8 +71,7 @@
   color: #EB4D4D;
 
 }
-
-
+/* Game screen that .png files get added to */ 
 #game{
 
   position: absolute;
@@ -115,6 +116,7 @@
   width: 100px;
   height: 100px;
 }
+/* design for the control "box" */
 #controls {
     background-color: black;
     border: 1px solid black;
@@ -137,7 +139,7 @@
         width: 340px;
         height: 340px;
       }
-
+/* Designs to show where closest cat and zombie is */ 
       #dangerLeft{
         position: absolute;
         top:170px;
