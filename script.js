@@ -438,13 +438,15 @@
 
                 document.getElementById("gameScore").textContent = "0"; 
 
-    // player position
+    // player position and spawning
 
             resetPlayer();
             spawnCats();
             spawnZombies();
             
     }
+
+     /*///////////////////////////////////////////////*/
 
     // what happens if a zombie gets you
 
